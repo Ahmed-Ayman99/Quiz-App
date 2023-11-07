@@ -1,0 +1,300 @@
+@import url("https://fonts.googleapis.com/css2?family=Codystar&display=swap");
+
+:root {
+  --color-darkest: #343a40;
+  --color-dark: #495057;
+  --color-medium: #ced4da;
+  --color-light: #f1f3f5;
+  --color-theme: #1098ad;
+  --color-accent: #ffa94d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-light);
+  background-color: var(--color-darkest);
+  padding: 3.2rem;
+}
+
+.app {
+  height: calc(100vh - 4.4rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+.main {
+  width: 60rem;
+  margin: 0 auto;
+  padding: 0rem 5rem;
+  margin-bottom: 3.2rem;
+  overflow-y: auto;
+}
+
+.primary-heading {
+  font-family: Codystar;
+  font-size: 3.8rem;
+}
+
+.secondary-heading {
+  font-weight: 600;
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+}
+
+.heading-tertiary {
+  font-size: 2.1rem;
+  margin-bottom: 2.4rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.btn,
+.timer {
+  color: inherit;
+  cursor: pointer;
+  border-radius: 10rem;
+  padding: 1.2rem 2.4rem;
+  border: 2px solid var(--color-dark);
+  font-size: 2rem;
+  transition: 0.3s;
+  text-align: start;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: transparent;
+}
+
+.list .btn-option:not([disabled]):hover,
+.list .btn-option.answer {
+  transform: translateX(1.4rem);
+}
+
+.list .btn-option.disabled {
+  cursor: not-allowed;
+}
+
+.list .btn-option.correct {
+  background-color: var(--color-theme);
+  border: 2px solid var(--color-theme);
+  color: var(--color-light);
+}
+
+.list .btn-option.wrong {
+  background-color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  color: var(--color-darkest);
+}
+
+/* Heaer */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 4rem;
+}
+
+.header .logo {
+  width: 6rem;
+  aspect-ratio: 1;
+  animation: loop 60s linear infinite;
+}
+
+@keyframes loop {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*************** Loading ***************/
+.spinner-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 6rem;
+  height: 6rem;
+
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, var(--color-theme));
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: rotate 1.5s infinite linear;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/*************** Error ***************/
+.oaerror {
+  width: 80%;
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+  margin: 10px auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+
+.danger {
+  border-left-color: #d9534f; /* Left side border color */
+  background-color: rgba(
+    217,
+    83,
+    79,
+    0.1
+  ); /*Same color as the left border with reduced alpha to 0.1*/
+}
+
+.danger strong {
+  color: #d9534f;
+}
+
+/************ Start Screen ************/
+.start-screen {
+  text-align: center;
+}
+
+.btn {
+  background-color: #495057;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 10rem;
+  padding: 1.2rem 2.4rem;
+  border: 2px solid var(--color-dark);
+  font-size: 2rem;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: transparent;
+}
+
+.start-text {
+  font-weight: 600;
+  font-size: 2.4rem;
+  margin-bottom: 4rem;
+}
+
+/************ Progress Bar ************/
+.progress {
+  margin-bottom: 4rem;
+}
+
+.progress-bar {
+  -webkit-appearance: none;
+  height: 1.2rem;
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+
+.progress-bar::-webkit-progress-bar {
+  background-color: var(--color-medium);
+  border-radius: 10rem;
+}
+
+.progress-bar::-webkit-progress-value {
+  background-color: var(--color-theme);
+  border-radius: 10rem;
+}
+
+.progress-overview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progress-overview p {
+  font-size: 1.8rem;
+}
+
+/************ Question + Answer ************/
+
+.queastion {
+  margin-bottom: 3.2rem;
+}
+
+/************ Question Footer ************/
+.question-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/************ Finish Screen ************/
+.finish-screen {
+  text-align: center;
+}
+
+.finish-bar {
+  background-color: var(--color-theme);
+  margin: 1.6rem;
+  color: inherit;
+  border-radius: 10rem;
+  padding: 1.2rem 2.4rem;
+  border: 2px solid var(--color-dark);
+  font-size: 2rem;
+}
+
+.highscore {
+  font-size: 1.8rem;
+  margin-bottom: 4.8rem;
+  text-align: center;
+}
+
+.restart-quiz {
+  display: flex;
+  justify-content: center;
+}
+
+/************ Footer  ************/
+.main-footer {
+  color: #fff;
+  margin-top: 1.2rem;
+  font-size: 1.6rem;
+  padding: 0 3.2rem;
+  border-radius: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transform: translateY(-50%);
+}
+
+.author {
+  color: var(--color-theme);
+  transition: 0.3s;
+}
+
+.author:hover {
+  color: var(--color-light);
+  transform: scale(1.1);
+}
